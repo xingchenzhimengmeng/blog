@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <link rel="stylesheet" href="{% static 'user_list.css' %}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#">用户列表</a></li>
+        <li><a href="/app01/user/add">添加用户</a></li>
+    </ul>
+</nav>
+<h1>用户管理系统</h1>
+<table>
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>账户</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>邮箱</th>
+            <th>密码</th>
+            <th>操作</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in  queryset %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ user.account }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.get_gender_display }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+            <td>
+                <a href="/app01/user/{{ user.id }}/edit/"><input type="button" value="编辑" /> </a>
+                <a href="/app01/user/{{ user.id }}/delete/"><input type="button" value="删除" /> </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>

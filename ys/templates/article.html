@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ post.title }}</title>
+    <link rel="stylesheet" href={% static 'prism.css' %}>
+    <link rel="stylesheet" href="{% static 'article.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+</head>
+<body>
+<div class="navbar">
+        <a href="{% url 'ys:home' %}">首页</a>
+        <a href="{% url 'ys:create_topic' %}" target="_blank">新建话题</a>
+        <a href="{% url 'ys:write' %}" target="_blank">写文章</a>
+        <div class="search-container">
+            <form action="{% url 'ys:home' %}" method="get" target="_blank">
+                <label>
+              <input type="text" placeholder="搜索" value="" class="input1" name="search">
+                    </label>
+              <button class="button1" type="submit">搜索</button>
+            </form>
+        </div>
+        <a href="{% url 'app01:logout' %}">退出登录</a>
+    </div>
+    <hr>
+    {% if post.picture %}
+    	<div class="container">
+            <img src="{% static post.picture %}" alt="文章封面" class="picture">
+    </div>
+    {% endif %}
+    <div class="container">
+            <h1>{{ post.title }}</h1>
+
+            <h5>作者：<a href="{% url 'ys:user' id_=post.author.id %}" target="_blank" class="link-styled">{{ post.author }}</a></h5>
+            <h5>话题：{{ post.topic }}</h5>
+            <h5>发布时间：{{ post.f_created_at }}</h5>
+            <h5>更新时间：{{ post.f_updated_at }}</h5>
+            <button class="a_button" onclick="like({{ post.id }})">点赞{{ like_nums }}</button>
+            <button class="a_button" onclick="collect({{ post.id }})">收藏{{ favorite_nums }}</button>
+        {% if flag %}
+            <a href="{% url 'ys:edit' id_=post.id %}" class="a_button">编辑文章</a>
+            <a href="{% url 'ys:delete_article' id_=post.id %}" class="a_button">删除文章</a>
+        {% endif %}
+    </div>
+    <div class="container">
+        <pre class="line-numbers">
+            {{ post.f_content|safe }}
+        </pre>
+
+    </div>
+    <div class="container">
+        <div>
+            <form id="comment-form" action="" method="post">{% csrf_token %}
+            <!-- 提交评论的文本区域 -->
+            <label class="label2" for="comment">
+                <textarea  placeholder="欢迎参与讨论" id="myTextarea" oninput="autoResize()" name="comment" rows="2" cols="40" required></textarea>
+            </label>
+            <!-- 提交按钮 -->
+            <button type="submit" class="button">提交评论</button>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+    <h1>评论区</h1>
+        {% for comment in comments %}
+        <div class="card">
+        <a href="{% url 'ys:user' id_=comment.user.id %}" target="_blank" class="link-styled"><span>{{ comment.user }}</span></a>
+            <p>{{ comment.content }}</p>
+            <p>{{ comment.f_created_at }}</p>
+        </div>
+        {% endfor %}
+    </div>
+<script src="{% static 'prism.js' %}"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/1.6.7/axios.min.js"></script>
+<script>
+    function autoResize() {
+        const textarea = document.getElementById('myTextarea');
+        textarea.style.height = 'auto'; // 重置高度以便重新计算
+        textarea.style.height = textarea.scrollHeight + 'px'; // 设置高度为内容的实际高度
+    }
+    function like(id) {
+          axios({
+              url: `/ys/like/article/${id}/`,
+              method: 'get',
+	  }).then(function (response) {
+              alert(response.data);
+      });
+    }
+    function collect(id) {
+          axios({
+              url: `/ys/favorite/article/${id}/`,
+              method: 'get',
+          }).then(function (response) {
+              alert(response.data);
+      });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="{% static 'create.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>登录</h1>
+        <form id="loginForm" method="post">{% csrf_token %}
+            <div class="form-group">
+                <label for="username">用户名:</label>
+                <input type="text" id="username" name="username" required value="{{ account }}">
+            </div>
+            <div class="form-group">
+                <label for="password">密码:</label>
+                <input type="password" id="password" name="password" required value="{{ password }}">
+            </div>
+            <a href="/app01/user/add/">注册</a>
+            <div id="message" style="color: red;">
+                {{ tip }}
+            </div>
+            <button type="submit">登录</button>
+        </form>
+    </div>
+
+</body>
+</html>

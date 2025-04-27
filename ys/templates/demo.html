@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="{% static 'showdown.min.js' %}"></script>
+
+<div id="markdown-content"></div>
+<script>
+    // 创建 showdown 实例
+const converter = new showdown.Converter();
+
+// 定义 Markdown 文本
+const markdownText = '# Hello, world!\n\nThis is *Markdown* text.';
+
+// 将 Markdown 转换为 HTML
+const htmlContent = converter.makeHtml(markdownText);
+
+// 将转换后的 HTML 插入到页面中
+document.getElementById('markdown-content').innerHTML = htmlContent;
+// 设置 showdown 的选项
+{#converter.setOption('tables', true); // 启用表格支持#}
+{#converter.setOption('tasklists', true); // 启用任务列表支持#}
+// ... 其他选项
+</script>
+</body>
+</html>

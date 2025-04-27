@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+.picture{
+    max-width: 100%;
+    max-height: 500px;
+    margin-top: 1px;
+}
+.card {
+    border: 1px solid #592e88; /* 设置边框样式 */
+    border-radius: 5px; /* 圆角边框 */
+    padding: 10px; /* 设置内边距 */
+    margin-bottom: 10px; /* 设置下边距 */
+    background-color: #ffffff; /* 设置背景颜色 */
+}
+
+.card p {
+    margin: 5px 0; /* 设置段落的上下边距 */
+}
+
+.card span {
+    font-weight: bold; /* 设置用户名加粗 */
+}
+.label2 {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+}
+.link-styled {
+    color: #8400ff; /* 设置链接文字颜色为蓝色 */
+    text-decoration: none; /* 去除下划线 */
+    font-weight: bold; /* 设置文字加粗 */
+    transition: color 0.3s; /* 添加颜色过渡效果 */
+}
+
+.link-styled:hover {
+    color: #40ff00; /* 鼠标悬停时改变颜色 */
+}
+.button{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+textarea {
+    display: block; /* 使textarea元素成为块级元素，方便设置宽度和高度 */
+    width: 100%; /* 设置宽度为父容器宽度，如果需要自适应，可以使用max-width */
+    height: 50px; /* 设置默认高度，根据需要调整 */
+    padding: 10px; /* 内边距增加空间感 */
+    border: 1px solid #ccc; /* 添加边框，颜色可以自定义 */
+    border-radius: 4px; /* 边框圆角，增加美观度 */
+    box-sizing: border-box; /* 保持边框内填充的尺寸不变 */
+    resize: both; /* 允许上下和左右方向的调整 */
+    font-family: Arial, sans-serif; /* 字体选择 */
+    font-size: 14px; /* 字体大小 */
+    line-height: 1.5; /* 行高设置 */
+    color: #333; /* 文本颜色 */
+    background-color: #fff; /* 文本背景色 */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* 添加轻微的阴影效果 */
+    outline: none; /* 去除默认的轮廓线 */
+    transition: border-color 0.3s ease; /* 添加鼠标悬停时边框颜色的渐变效果 */
+}
+
+textarea:hover {
+    border-color: #666; /* 鼠标悬停时边框颜色 */
+}
+.container {
+    max-width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+.a_button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8c00ff; /* 按钮背景颜色 */
+    color: #fff; /* 文本颜色 */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; /* 圆角 */
+    border: 1px solid #ffffff; /* 边框 */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* 添加过渡效果 */
+}
+
+.a_button:hover {
+    background-color: #00b333; /* 鼠标悬停时的背景颜色 */
+    color: #fff; /* 鼠标悬停时的文本颜色 */
+}
+p {
+    font-family: Arial, sans-serif; /* 选择一个字体，如Arial */
+    font-size: 16px; /* 设置字体大小，根据需要调整 */
+    color: #333; /* 设置文本颜色，如深灰色，十六进制#333 */
+    line-height: 1.5; /* 设置行高，使得文本更易阅读 */
+    text-align: justify; /* 可选，如果需要文本居中对齐 */
+    margin: 10px 0; /* 设置上下外边距，增加段落间距 */
+    padding: 0; /* 可选，去除内边距，如果不需要 */
+
+}
+/*注释无边界*/
+.comment {
+  border: none !important;
+  background-color: transparent !important;
+}
+
+
+
+

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'navbar.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="{% url 'play:index' %}">首页</a>
+{#        <a href="{% url 'ys:user' id_=user.id %}">我的主页</a>#}
+        <a href="{% url 'ys:create_topic' %}" target="_blank">新建话题</a>
+        <a href="{% url 'ys:write' %}" target="_blank">写文章</a>
+        <div class="search-container">
+            <form action="{% url 'ys:home' %}" method="get">
+                <label>
+              <input type="text" placeholder="搜索" value="" class="input1" name="search">
+                    </label>
+              <button class="button1" type="submit">搜索</button>
+            </form>
+        </div>
+        <a href="{% url 'app01:login' %}">请登录</a>
+        <a href="{% url 'app01:logout' %}">退出登录</a>
+    </div>
+    <div class="container">
+        <h1 style="text-align: center">所有帖子</h1>
+    {% for post in posts %}
+        <div class="article-card">
+            <div class="article-card-user-info">
+                <a href="{% url 'ys:user' id_=post.author.id %}" class="link-styled"><span style="padding: 10px;">{{ post.author }}</span></a>
+                <span style="padding: 10px;">{{ post.f_updated_at }}</span>
+                <span style="padding: 10px;">{{ post.topic }}</span>
+            </div><br>
+            <div class="article-card-title">
+                 <a target="_blank" href="{% url 'ys:article' id_=post.id %}">
+                     <div class="article-card-title">{{ post.title }}</div>
+                 </a>
+            </div>
+            <div class="article-card-content">
+                {{ post.content|slice:":50" }}{% if post.content|length > 50 %}...{% endif %}
+            </div>
+            <br>
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>
