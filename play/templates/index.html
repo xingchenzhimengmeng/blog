@@ -13,6 +13,8 @@
 {#        <a href="{% url 'ys:user' id_=user.id %}">我的主页</a>#}
         <a href="{% url 'ys:create_topic' %}" target="_blank">新建话题</a>
         <a href="{% url 'ys:write' %}" target="_blank">写文章</a>
+	<a href="http://120.79.36.136:3000/" target="_blank">Open WebUI</a>
+	<a href="{% url 'play:main' %}"  target="_blank">财务报表可视化</a>
         <div class="search-container">
             <form action="{% url 'ys:home' %}" method="get">
                 <label>

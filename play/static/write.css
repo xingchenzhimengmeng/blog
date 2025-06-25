@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+form {
+    margin-top: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="file"], select {
+    width: 30%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#imagePreview {
+    /*float: right;*/
+    max-width: 300px;
+    max-height: 300px;
+    margin-top: 20px;
+    display: none; /* 初始隐藏预览图片 */
+}
+.container {
+    max-width: 93%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    max-width: 96%;
+    margin: 0 auto;
+    padding: 0;
+}
+.editor,
+.preview {
+    flex: 1;
+    padding: 1px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0;
+    border-radius: 5px;
+    overflow: auto;
+}
+
+.editor textarea {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    resize: vertical;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    border-radius: 5px;
+    line-height: 1.5; /* 增加行距 */
+}
+.editor textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.preview {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; /* 设置背景颜色为淡黑色，十六进制#333333 */
+}
+/*注释无边界*/
+.comment {
+  border: none !important;
+  background-color: transparent !important;
+}
+.a_button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8c00ff; /* 按钮背景颜色 */
+    color: #fff; /* 文本颜色 */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; /* 圆角 */
+    border: 1px solid #ffffff; /* 边框 */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* 添加过渡效果 */
+}
+
+.a_button:hover {
+    background-color: #00b333; /* 鼠标悬停时的背景颜色 */
+    color: #fff; /* 鼠标悬停时的文本颜色 */
+}
+p {
+    font-family: Arial, sans-serif; /* 选择一个字体，如Arial */
+    font-size: 16px; /* 设置字体大小，根据需要调整 */
+    color: #333; /* 设置文本颜色，如深灰色，十六进制#333 */
+    line-height: 1.5; /* 设置行高，使得文本更易阅读 */
+    text-align: justify; /* 可选，如果需要文本居中对齐 */
+    margin: 10px 0; /* 设置上下外边距，增加段落间距 */
+    padding: 0; /* 可选，去除内边距，如果不需要 */
+}
